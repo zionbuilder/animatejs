@@ -1,5 +1,5 @@
 {
-  "name": "animatejs",
+  "name": "@zionbuilder/animatejs",
   "version": "1.0.0",
   "description": "Animate on scroll using css",
   "main": "./dist/animateJs.js",
