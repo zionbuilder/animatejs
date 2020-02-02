@@ -1,6 +1,6 @@
 {
   "name": "@zionbuilder/animatejs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Animate on scroll using css",
   "keywords": [
     "animate",
@@ -13,8 +13,8 @@
     "url": "git+github:zionbuilder/animatejs.git"
   },
   "homepage": "https://github.com/zionbuilder/animatejs#readme",
-  "bugs": { 
-    "url" : "https://github.com/zionbuilder/project/issues"
+  "bugs": {
+    "url": "https://github.com/zionbuilder/project/issues"
   },
   "scripts": {
     "build": "webpack --mode=production",
