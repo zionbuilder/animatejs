@@ -8,21 +8,27 @@ import observe from './helpers/intersectionObserver'
  */
 const animateJs = function (options) {
     options = {
-        animationClass: 'ja__animate',
-        selectorClass: 'ja__element',
+        animationClass: 'animated',
+        selectorClass: 'ajs__element',
         watchForChanges: true,
         ...options
     }
 
-    const elements = document.querySelectorAll(`.${options.selectorClass}`)
+    let elements = document.querySelectorAll(`.${options.selectorClass}`)
 
     // if the browser is not supported, animate all items
     if (!isSupportedBrowser()) {
         elements.forEach(element => {
-            element.classList.add(options.animationClass)
+            applyAnimation( element )
         })
     }
 
+    /**
+     * Callback to run when the element enters the viewport
+     * 
+     * @param [IntersectionObserverEntry] entries 
+     * @param IntersectionObserver observer 
+     */
     const onElementInViewport = function (entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -33,9 +39,16 @@ const animateJs = function (options) {
         })
     }
 
+    /**
+     * Apply animation
+     * 
+     * Will apply the animation class to the provided element
+     * 
+     * @param HTMLElement domNode The DOM node for which you want to apply the animation
+     */
     const applyAnimation = function (domNode) {
         if (domNode.dataset.jaAnimation) {
-            domNode.classList.add(domNode.dataset.jaAnimation)
+            domNode.classList.add(domNode.dataset.jaAnimation, options.animationClass)
         }
     }
 
@@ -43,8 +56,12 @@ const animateJs = function (options) {
 
     const destroy = function () {
         observer.disconnect()
+        elements = null
     }
 
+    return {
+        destroy
+    }
 }
 
 /**

@@ -13,61 +13,66 @@
     </style>
 </head>
 <body>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
-    <div class="ja__demo-element ja__element animated" data-ja-animation="bounce">
+    <div class="ja__demo-element ajs__element" data-ja-animation="bounce">
         Fade
     </div>
 
     <script src="../dist/animateJs.js"></script>
     <script type="text/javascript">
-        animateJs({
-            selectorClass: 'ja__element',
+        var aaa = animateJs({
+            selectorClass: 'ajs__element',
             animationClass: 'animated'
         })
+
+        setTimeout(function() {
+            aaa.destroy()
+            aaa = null
+        }, 4000)
     </script>
 </body>
 </html>
