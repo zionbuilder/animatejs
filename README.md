@@ -26,7 +26,7 @@ Script:
 
     <script  type="text/javascript">
         animateJs({
-    	    selectorClass: 'ja__element', // The selector for which you want to enable the anim
+    	    selectorClass: 'ajs__element', // The selector for which you want to enable the anim
     	    animationClass: 'animated' // The class to apply when the element enters the viewport
         })
     </script>
