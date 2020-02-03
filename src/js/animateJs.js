@@ -47,8 +47,8 @@ const animateJs = function (options) {
      * @param HTMLElement domNode The DOM node for which you want to apply the animation
      */
     const applyAnimation = function (domNode) {
-        if (domNode.dataset.jaAnimation) {
-            domNode.classList.add(domNode.dataset.jaAnimation, options.animationClass)
+        if (domNode.dataset.ajsAnimation) {
+            domNode.classList.add(domNode.dataset.ajsAnimation, options.animationClass)
         }
     }
 

@@ -18,7 +18,7 @@ $ npm install @zionbuilder/animatejs
 #### Usage:
 Markup:
 
-    <div  class="ajs__element"  data-ja-animation="bounce">
+    <div  class="ajs__element"  data-ajs-animation="bounce">
     	My fancy element
     </div>
 
