@@ -17,12 +17,14 @@ const animateJs = function (options) {
         ...options
     }
 
-    if ( typeof options.selector === 'string' ) {
-        elements = document.querySelectorAll(`.${options.selector}`)
-    } else if ( options.selector instanceof NodeList || options.selector instanceof Array ) {
-        elements = [...options.selector]
-    } else if ( options.selector instanceof HTMLElement ) {
-        elements = [options.selector]
+    const selector = options.selector
+
+    if ( typeof selector === 'string' ) {
+        elements = document.querySelectorAll(`.${selector}`)
+    } else if ( ( typeof selector === 'object' && selector[0] && selector[0].nodeType === 1 ) || selector instanceof Array ) {
+        elements = [...selector]
+    } else if ( typeof selector === 'object' && selector.nodeType === 1 ) {
+        elements = [selector]
     } else {
         console.warn('You need to specify the selector.')
         return
