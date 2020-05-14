@@ -34,6 +34,9 @@ const animateJs = function (options) {
             if (entry.isIntersecting) {
                 if (options.animationClass) {
                     applyAnimation( entry.target )
+                } else {
+                    const event = new Event('inViewport');
+                    entry.target.dispatchEvent(event);
                 }
             }
         })
