@@ -7,15 +7,27 @@ import observe from './helpers/intersectionObserver'
  * @param {} options 
  */
 const animateJs = function (options) {
+    let elements
     options = {
         animationClass: 'animated',
-        selectorClass: 'ajs__element',
+        selector: 'ajs__element',
         watchForChanges: true,
+        mode: 'css_class',
+        once: true,
         ...options
     }
 
-    let elements = document.querySelectorAll(`.${options.selectorClass}`)
-
+    if ( typeof options.selector === 'string' ) {
+        elements = document.querySelectorAll(`.${options.selector}`)
+    } else if ( options.selector instanceof NodeList || options.selector instanceof Array ) {
+        elements = [...options.selector]
+    } else if ( options.selector instanceof HTMLElement ) {
+        elements = [options.selector]
+    } else {
+        console.warn('You need to specify the selector.')
+        return
+    }
+    
     // if the browser is not supported, animate all items
     if (!isSupportedBrowser()) {
         elements.forEach(element => {
@@ -32,11 +44,16 @@ const animateJs = function (options) {
     const onElementInViewport = function (entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                if (options.animationClass) {
+                if (options.mode === 'css_class' && options.animationClass) {
                     applyAnimation( entry.target )
-                } else {
+                } else if (options.mode === 'event') {
                     const event = new Event('inViewport');
                     entry.target.dispatchEvent(event);
+                }
+
+                // Remove the element from elements list
+                if (options.once) {
+                    observer.unobserve(entry.target);
                 }
             }
         })
